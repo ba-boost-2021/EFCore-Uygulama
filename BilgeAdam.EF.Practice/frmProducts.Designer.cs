@@ -41,6 +41,7 @@
             this.lstCategories.Name = "lstCategories";
             this.lstCategories.Size = new System.Drawing.Size(243, 544);
             this.lstCategories.TabIndex = 0;
+            this.lstCategories.SelectedIndexChanged += new System.EventHandler(this.lstCategories_SelectedIndexChanged);
             // 
             // dgvProducts
             // 
