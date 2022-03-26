@@ -7,6 +7,7 @@ namespace BilgeAdam.Data.DataAccess
     public class NorthwindDbContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

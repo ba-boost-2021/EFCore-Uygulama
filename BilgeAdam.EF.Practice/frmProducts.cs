@@ -1,25 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BilgeAdam.Data.Dtos;
+using BilgeAdam.Data.Services.Abstractions;
+using BilgeAdam.Data.Services.Concretes;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace BilgeAdam.EF.Practice
 {
     public partial class frmProducts : Form
     {
+        private readonly ICategoryService categoryService;
+
         public frmProducts()
         {
             InitializeComponent();
+            categoryService = new CategoryService();
         }
 
         private void frmProducts_Load(object sender, EventArgs e)
         {
-            // Kategorileri listeleyin 
+            var categories = categoryService.GetAllCategoriesAsOption();
+            lstCategories.DataSource = new BindingList<CategoryListDto>(categories);
+            lstCategories.DisplayMember = nameof(CategoryListDto.Name);
+            lstCategories.SelectedIndex = -1;
         }
     }
 }
