@@ -1,5 +1,6 @@
 ﻿using BilgeAdam.Data.DataAccess;
 using BilgeAdam.Data.Dtos;
+using BilgeAdam.Data.Manager;
 using BilgeAdam.Data.Services.Abstractions;
 
 namespace BilgeAdam.Data.Services.Concretes
@@ -10,7 +11,7 @@ namespace BilgeAdam.Data.Services.Concretes
 
         public CategoryService()
         {
-            context = new NorthwindDbContext();
+            context = ContextManager.GetDbContext();
         }
 
         public List<CategoryListDto> GetAllCategoriesAsOption()

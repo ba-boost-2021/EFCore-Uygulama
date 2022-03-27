@@ -15,5 +15,10 @@ namespace BilgeAdam.Data.Entities
         public short UnitsOnOrder { get; set; }
         public short ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
+
+
+        //Navigation Property
+        [ForeignKey(nameof(CategoryID))]
+        public Category Category { get; set; }
     }
 }

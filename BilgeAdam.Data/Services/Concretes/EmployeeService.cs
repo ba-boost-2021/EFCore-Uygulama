@@ -1,6 +1,7 @@
 ﻿using BilgeAdam.Data.DataAccess;
 using BilgeAdam.Data.Dtos;
 using BilgeAdam.Data.Entities;
+using BilgeAdam.Data.Manager;
 using BilgeAdam.Data.Services.Abstractions;
 
 namespace BilgeAdam.Data.Services.Concretes
@@ -11,7 +12,7 @@ namespace BilgeAdam.Data.Services.Concretes
 
         public EmployeeService()
         {
-            context = new NorthwindDbContext();
+            context = ContextManager.GetDbContext();
         }
 
         public List<EmployeeViewDto> GetAllEmployee()
